@@ -22,6 +22,8 @@ data class NewElement( val listElement: String )
 @Composable
 fun Navigation(){
 
+
+
     val navController = rememberNavController()
 
     NavHost( navController = navController, startDestination = Home ){
