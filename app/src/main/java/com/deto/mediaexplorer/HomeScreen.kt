@@ -49,7 +49,7 @@ import androidx.navigation.NavController
 
 
 fun getCategories() : List<Category>{
-    val categories = listOf(
+    var categories = mutableListOf(
 
         Category(1,"Anime","Animaciones Japonesas",R.drawable.manga_24px),
         Category(2,"Peliculas","Obra audiovisual de un tiempo determinado",R.drawable.movie_24px),
@@ -65,7 +65,19 @@ fun getCategories() : List<Category>{
     return categories
 }
 
-class Category(val id: Int, val title: String, val description: String, val icon: Int)
+class Element(
+    var id: Int,
+    var title: String,
+    var description: String,
+    var Imagen: Int
+)
+class Category(
+    var id: Int,
+    var title: String,
+    var description: String,
+    var icon: Int,
+    var elements: List<Element> = emptyList()
+)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
