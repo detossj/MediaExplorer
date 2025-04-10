@@ -11,7 +11,7 @@ import kotlinx.serialization.Serializable
 object Home
 
 @Serializable
-data class SecondScreen( val category: String)
+data class SecondScreen( val category: Int)
 
 @Serializable
 data class NewCategory( val listCategory: String )

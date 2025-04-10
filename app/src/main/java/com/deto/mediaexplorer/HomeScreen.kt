@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,9 +16,14 @@ import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
@@ -25,6 +31,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -69,7 +76,9 @@ fun HomeScreen( navController: NavController ){
         modifier = Modifier.fillMaxSize(),
         topBar = {
             LargeTopAppBar(
-                modifier = Modifier.fillMaxWidth().padding(0.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(0.dp),
                 title = {
                     Column (
                         modifier = Modifier
@@ -97,18 +106,48 @@ fun HomeScreen( navController: NavController ){
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {},
-                containerColor = Color.Cyan,
+                containerColor = Color.LightGray,
                 contentColor = Color.White
 
             ) {
                 Icon(Icons.Default.Add, contentDescription = "Add")
+            }
+        },
+        bottomBar = {
+            BottomAppBar() {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    TextButton(
+                        modifier = Modifier.fillMaxWidth(.7f),
+                        onClick = {}
+                    ) {
+                        Text("View elements of the category")
+                    }
+
+                    Button(
+                        onClick = { if( selected == 0 ) {} else navController.navigate(SecondScreen(selected)) },
+                        shape = CircleShape,
+                        contentPadding = PaddingValues(0.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.KeyboardArrowRight,
+                            contentDescription = "advance",
+                            modifier = Modifier.padding(0.dp)
+                        )
+                    }
+                }
             }
         }
 
     ) { innerPadding ->
 
         Column(
-            modifier = Modifier.padding(innerPadding).fillMaxHeight().fillMaxWidth(),
+            modifier = Modifier
+                .padding(innerPadding)
+                .fillMaxHeight()
+                .fillMaxWidth(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -123,7 +162,13 @@ fun HomeScreen( navController: NavController ){
                     Card(
                         modifier = Modifier
                             .padding(10.dp)
-                            .clickable { selected = it.id }
+                            .clickable { selected = it.id },
+                        colors = CardColors(
+                            contentColor = Color.White,
+                            containerColor =  if (selected == it.id ) Color.Red else Color.Gray ,
+                            disabledContentColor = Color.White,
+                            disabledContainerColor = Color.Transparent
+                        )
 
                     ) {
 
@@ -138,7 +183,7 @@ fun HomeScreen( navController: NavController ){
                             Icon(
                                 painterResource(it.icon),
                                 contentDescription = "Category Box",
-                                modifier = Modifier.size(50.dp)
+                                modifier = Modifier.size(60.dp)
                             )
 
                             Text(
