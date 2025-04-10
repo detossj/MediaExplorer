@@ -52,8 +52,9 @@ fun getCategories() : List<Category>{
     var categories = mutableListOf(
 
         Category(1,"Anime","Animaciones Japonesas",R.drawable.manga_24px,mutableListOf(
-            Element(1,"Naruto","Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale.",1),
-            Element(2,"Dragon Ball Z","En Dragon ball Z Goku se ha convertido en un adulto y está casado con Milk, con la que tiene un hijo llamado Gohan. En esta segunda saga de Dragon ball Goku descubrirá que no es un terricola, sino que pertenece a una raza de guerreros conocida por ser una de las más poderosas de la galaxia, para posteriormente dar paso a los verdaderos enemigos de la serie.",1)
+            Element(1,"Naruto","Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale.",R.drawable.naruto),
+            Element(2,"Dragon Ball Z","En Dragon Ball Z, Goku, ahora adulto y casado con Milk, descubre que no es humano, sino un saiyajin, una raza de guerreros poderosos. Esto da paso a los verdaderos enemigos de la serie.",R.drawable.dragonballz),
+            Element(3,"One Piece","One Piece sigue las aventuras de Monkey D. Luffy, un joven que busca el legendario tesoro \"One Piece\" para convertirse en el Rey de los Piratas. A lo largo de su viaje, Luffy forma una tripulación de amigos y enfrenta poderosos enemigos.",R.drawable.onepiece),
         )),
         Category(2,"Peliculas","Obra audiovisual de un tiempo determinado",R.drawable.movie_24px),
         Category(3,"Series","Obra audiovisual separado en varios capitulos",R.drawable.live_tv_24px),
