@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MediaExplorer</string>
+    <string name="title">MediaExplorer</string>
+    <string name="subtitle">Please select a category</string>
 </resources>
