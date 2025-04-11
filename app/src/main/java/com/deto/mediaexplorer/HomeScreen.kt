@@ -69,7 +69,11 @@ fun getCategories() : List<Category>{
             Element(3,"Iron Fist","Iron Fist es una serie de televisión de Marvel que narra la historia de Danny Rand, un joven que regresa a Nueva York tras años de desaparición. Danny posee un dominio del kung-fu y la habilidad de invocar el Puño de Hierro",R.drawable.ironfist)
 
         )),
-        Category(4,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px),
+        Category(4,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px, mutableListOf(
+            Element(1,"Papá a la deriva","Bruno Montt es un reconocido capitán de la Marina que enviudó hace cinco años. Desde entonces, se ha dedicado con dedicación y disciplina a la educación de sus cuatro hijos. Pero esta labor no ha sido fácil. A pesar de sus esfuerzos por ser un excelente padre, sus hijos aún necesitan una madre. Es entonces cuando Violeta, la hija del mayordomo, llega a la residencia Montt, conquistando a la familia.",R.drawable.papaaladeriva),
+            Element(2,"Pobre gallo","Nicolás Pérez de Castro es un empresario que sólo piensa en el trabajo y que vive conectado a todos los aparatos tecnológicos existentes, dejando de lado a su familia, a los que no les presta nada de atención. Por esto, su esposa Florencia, cansada de que no la tomen en cuenta, lo abandona.",R.drawable.pobregallo),
+            Element(3,"Pituca sin lucas","Narra la caída de una mujer acostumbrada a los lujos y la buena vida, quien tras una mala maniobra financiera de su marido queda en la ruina y debe partir de cero.",R.drawable.pitucasinlucas)
+        )),
         Category(5,"Series","Obra audiovisual separado en varios capitulos",R.drawable.live_tv_24px),
         Category(6,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px),
         Category(7,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px),
