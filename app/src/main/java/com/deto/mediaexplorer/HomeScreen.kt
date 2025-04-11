@@ -50,41 +50,45 @@ import kotlinx.serialization.Serializable
 
 
 
-fun getCategories() : List<Category>{
+fun getCategories() : MutableList<Category>{
     var categories = mutableListOf(
 
-        Category(1,"Anime","Animaciones Japonesas",R.drawable.manga_24px,mutableListOf(
+        Category(1,"Anime",R.drawable.manga_24px,mutableListOf(
             Element(1,"Naruto","Naruto, un aprendiz de ninja de la Aldea Oculta de Konoha es un chico travieso que desea llegar a ser el Hokage de la aldea para demostrar a todos lo que vale.",R.drawable.naruto),
             Element(2,"Dragon Ball Z","En Dragon Ball Z, Goku, ahora adulto y casado con Milk, descubre que no es humano, sino un saiyajin, una raza de guerreros poderosos. Esto da paso a los verdaderos enemigos de la serie.",R.drawable.dragonballz),
             Element(3,"One Piece","One Piece sigue las aventuras de Monkey D. Luffy, un joven que busca el legendario tesoro \"One Piece\" para convertirse en el Rey de los Piratas. A lo largo de su viaje, Luffy forma una tripulación de amigos y enfrenta poderosos enemigos.",R.drawable.onepiece),
         )),
-        Category(2,"Peliculas","Obra audiovisual de un tiempo determinado",R.drawable.movie_24px, mutableListOf(
+        Category(2,"Peliculas",R.drawable.movie_24px, mutableListOf(
             Element(1,"Minecraft","Una extraña tierra cuadrada que prospera con la imaginación. Para regresar a casa, tendrán que dominar este mundo (y protegerlo de cosas malignas como los Piglins y los Zombis) mientras emprenden una búsqueda mágica con un inesperado experto creador, Steve (Black).",R.drawable.minecraft),
             Element(2,"Blancanieves","Una adaptación en vivo del clásico cuento de hadas sobre una hermosa joven princesa que, mientras es acosada por una reina celosa, busca refugio en la casa de siete enanos en la campiña alemana.",R.drawable.blancanieves),
             Element(3,"Capitan America: Un nuevo mundo","Tras reunirse con el recientemente electo presidente de los Estados Unidos Thaddeus Ross, Sam se encuentra en medio de un conflicto internacional. Debe descubrir la razón de un nefasto complot mundial antes de que el verdadero artífice detrás del mismo haga que el mundo entero entre en caos.",R.drawable.capitanamerica)
         )),
-        Category(3,"Series","Obra audiovisual separado en varios capitulos",R.drawable.live_tv_24px, mutableListOf(
+        Category(3,"Series",R.drawable.live_tv_24px, mutableListOf(
             Element(1,"Daredevil","Daredevil es una serie de Marvel que trata de Matt Murdock, un abogado ciego que lucha contra el crimen como el justiciero enmascarado Daredevil.",R.drawable.daredevil),
             Element(2,"The Punisher","The Punisher es una serie de televisión estadounidense de Marvel que narra la historia de Frank Castle, un ex soldado que se convierte en un justiciero enmascarado. Su objetivo es vengar el asesinato de su familia.",R.drawable.thepunisher),
             Element(3,"Iron Fist","Iron Fist es una serie de televisión de Marvel que narra la historia de Danny Rand, un joven que regresa a Nueva York tras años de desaparición. Danny posee un dominio del kung-fu y la habilidad de invocar el Puño de Hierro",R.drawable.ironfist)
 
         )),
-        Category(4,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px, mutableListOf(
+        Category(4,"Novela",R.drawable.menu_book_24px, mutableListOf(
             Element(1,"Papá a la deriva","Bruno Montt es un reconocido capitán de la Marina que enviudó hace cinco años. Desde entonces, se ha dedicado con dedicación y disciplina a la educación de sus cuatro hijos. Pero esta labor no ha sido fácil. A pesar de sus esfuerzos por ser un excelente padre, sus hijos aún necesitan una madre. Es entonces cuando Violeta, la hija del mayordomo, llega a la residencia Montt, conquistando a la familia.",R.drawable.papaaladeriva),
             Element(2,"Pobre gallo","Nicolás Pérez de Castro es un empresario que sólo piensa en el trabajo y que vive conectado a todos los aparatos tecnológicos existentes, dejando de lado a su familia, a los que no les presta nada de atención. Por esto, su esposa Florencia, cansada de que no la tomen en cuenta, lo abandona.",R.drawable.pobregallo),
             Element(3,"Pituca sin lucas","Narra la caída de una mujer acostumbrada a los lujos y la buena vida, quien tras una mala maniobra financiera de su marido queda en la ruina y debe partir de cero.",R.drawable.pitucasinlucas)
         )),
-        Category(5,"Series","Obra audiovisual separado en varios capitulos",R.drawable.live_tv_24px),
-        Category(6,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px),
-        Category(7,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px),
-        Category(8,"Series","Obra audiovisual separado en varios capitulos",R.drawable.live_tv_24px),
-        Category(9,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px)
+        Category(5,"Series",null),
+        Category(6,"Novela",null),
+        Category(7,"Novela",null),
+        Category(8,"Series",null),
+        Category(9,"Novela",null)
 
     )
     return categories
 }
 
-fun setCategories() : Unit{
+fun setCategories( newCategory: Category) : Unit {
+
+    var cat = getCategories()
+
+    cat.add(newCategory)
 
 }
 
@@ -92,14 +96,13 @@ class Element(
     var id: Int,
     var title: String,
     var description: String,
-    var Imagen: Int
+    var Imagen: Int?
 )
 
 class Category(
     var id: Int,
     var title: String,
-    var description: String,
-    var icon: Int,
+    var icon: Int?,
     var elements: List<Element> = emptyList()
 )
 
@@ -188,11 +191,25 @@ fun HomeScreen( navController: NavController ){
                             verticalArrangement = Arrangement.Center,
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
-                            Icon(
-                                painterResource(it.icon),
-                                contentDescription = "Category Box",
-                                modifier = Modifier.size(60.dp)
-                            )
+
+
+                            if(it.icon == null) {
+
+                                Icon(
+                                    painterResource(R.drawable.noimage),
+                                    contentDescription = "Category Box",
+                                    modifier = Modifier.size(60.dp)
+                                )
+
+                            } else {
+                                Icon(
+                                    painterResource(it.icon!!),
+                                    contentDescription = "Category Box",
+                                    modifier = Modifier.size(60.dp)
+                                )
+                            }
+
+
 
                             Text(
                                 text = it.title,

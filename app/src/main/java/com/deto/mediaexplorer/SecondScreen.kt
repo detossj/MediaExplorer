@@ -141,11 +141,21 @@ fun SecondScreen( navController: NavController, category:Int ){
                                 verticalArrangement = Arrangement.Center,
                                 horizontalAlignment = Alignment.CenterHorizontally
                             ) {
-                                Image(
-                                    painter = painterResource(it.Imagen),
-                                    contentDescription = "Image Element",
-                                    modifier = Modifier.size(200.dp)
-                                )
+                                if(it.Imagen == null){
+                                    Image(
+                                            painter = painterResource(R.drawable.no_photography_24px),
+                                        contentDescription = "Image Element",
+                                        modifier = Modifier.size(200.dp)
+                                    )
+
+                                } else {
+                                    Image(
+                                        painter = painterResource(it.Imagen!!),
+                                        contentDescription = "Image Element",
+                                        modifier = Modifier.size(200.dp)
+                                    )
+                                }
+
                             }
 
                             // Columna derecha: título y descripción
