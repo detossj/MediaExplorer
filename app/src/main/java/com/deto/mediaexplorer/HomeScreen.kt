@@ -35,8 +35,10 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -84,13 +86,6 @@ fun getCategories() : MutableList<Category>{
     return categories
 }
 
-fun setCategories( newCategory: Category) : Unit {
-
-    var cat = getCategories()
-
-    cat.add(newCategory)
-
-}
 
 class Element(
     var id: Int,
@@ -108,7 +103,8 @@ class Category(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen( navController: NavController ){
+fun HomeScreen( navController: NavController, listCategory: List<Category> ){
+
 
     var selected by remember { mutableIntStateOf(0) }
     Scaffold(
@@ -116,7 +112,7 @@ fun HomeScreen( navController: NavController ){
         topBar = { TopAppBar(stringResource(R.string.home_title),stringResource(R.string.home_subtitle))},
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { navController.navigate(NewCategory)},
+                onClick = {  navController.navigate(NewCategory)},
                 containerColor = Color.LightGray,
                 contentColor = Color.White
 
@@ -138,7 +134,7 @@ fun HomeScreen( navController: NavController ){
                     }
 
                     Button(
-                        onClick = { if( selected == 0 ) {} else navController.navigate(SecondScreen(selected)) },
+                        onClick = { if( selected == 0 ) {} else   navController.navigate(SecondScreen(selected)) },
                         shape = CircleShape,
                         contentPadding = PaddingValues(0.dp)
                     ) {
@@ -169,7 +165,7 @@ fun HomeScreen( navController: NavController ){
                 modifier = Modifier.fillMaxWidth()
 
             ) {
-                items(getCategories()) {
+                items(listCategory) {
                     Card(
                         modifier = Modifier
                             .padding(10.dp)

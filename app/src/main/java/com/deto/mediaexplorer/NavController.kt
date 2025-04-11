@@ -1,6 +1,8 @@
 package com.deto.mediaexplorer
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -19,17 +21,20 @@ object NewCategory
 @Serializable
 object NewElement
 
+
+
 @Composable
 fun Navigation(){
 
 
+    var list = remember { mutableStateListOf<Category>().apply { addAll(getCategories()) } }
 
     val navController = rememberNavController()
 
     NavHost( navController = navController, startDestination = Home ){
 
         composable<Home> {
-            HomeScreen(navController = navController)
+            HomeScreen(navController = navController,list)
         }
 
         composable<SecondScreen> { backStackEntry ->
@@ -37,8 +42,8 @@ fun Navigation(){
             SecondScreen(navController = navController, category = args.category)
         }
 
-        composable<NewCategory> { backStackEntry ->
-            NewCategory(navController = navController)
+        composable<NewCategory> {
+            NewCategory(navController = navController, add = { list.add(it) })
         }
 
         composable<NewElement> { backStackEntry ->

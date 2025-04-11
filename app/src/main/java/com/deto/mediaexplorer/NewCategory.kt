@@ -26,6 +26,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
@@ -36,10 +37,9 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NewCategory( navController: NavController){
+fun NewCategory( navController: NavController,add: (Category)-> Unit){
 
     var title by remember { mutableStateOf("") }
-    var description by remember { mutableStateOf("") }
     var error by remember { mutableStateOf(false) }
 
 
@@ -54,13 +54,20 @@ fun NewCategory( navController: NavController){
                 ) {
                     TextButton(
                         modifier = Modifier.fillMaxWidth(.7f),
-                        onClick = {}
+                        onClick = {
+                        }
                     ) {
                         Text("Add category")
                     }
 
                     Button(
-                        onClick = {  },
+                        onClick = {
+                            val newCategory = Category(getCategories().size+1,title,null, emptyList())
+
+                            add(newCategory)
+
+                            navController.navigate(Home)
+                        },
                         shape = CircleShape,
                         contentPadding = PaddingValues(0.dp)
                     ) {
@@ -84,7 +91,9 @@ fun NewCategory( navController: NavController){
                 modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight()
-                    .padding(horizontal = 40.dp)
+                    .padding(horizontal = 40.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
                 OutlinedTextField(
@@ -97,15 +106,7 @@ fun NewCategory( navController: NavController){
 
                 )
 
-                OutlinedTextField(
-                    modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
-                    value = description,
-                    isError = error,
-                    onValueChange = { description = it },
-                    label = { Text("Description") },
-                    placeholder = { Text("Description")}
 
-                )
 
 
 
