@@ -49,6 +49,7 @@ import androidx.navigation.NavController
 import kotlinx.serialization.Serializable
 
 
+
 fun getCategories() : List<Category>{
     var categories = mutableListOf(
 
@@ -57,7 +58,11 @@ fun getCategories() : List<Category>{
             Element(2,"Dragon Ball Z","En Dragon Ball Z, Goku, ahora adulto y casado con Milk, descubre que no es humano, sino un saiyajin, una raza de guerreros poderosos. Esto da paso a los verdaderos enemigos de la serie.",R.drawable.dragonballz),
             Element(3,"One Piece","One Piece sigue las aventuras de Monkey D. Luffy, un joven que busca el legendario tesoro \"One Piece\" para convertirse en el Rey de los Piratas. A lo largo de su viaje, Luffy forma una tripulación de amigos y enfrenta poderosos enemigos.",R.drawable.onepiece),
         )),
-        Category(2,"Peliculas","Obra audiovisual de un tiempo determinado",R.drawable.movie_24px),
+        Category(2,"Peliculas","Obra audiovisual de un tiempo determinado",R.drawable.movie_24px, mutableListOf(
+            Element(1,"Minecraft","Una extraña tierra cuadrada que prospera con la imaginación. Para regresar a casa, tendrán que dominar este mundo (y protegerlo de cosas malignas como los Piglins y los Zombis) mientras emprenden una búsqueda mágica con un inesperado experto creador, Steve (Black).",R.drawable.minecraft),
+            Element(2,"Blancanieves","Una adaptación en vivo del clásico cuento de hadas sobre una hermosa joven princesa que, mientras es acosada por una reina celosa, busca refugio en la casa de siete enanos en la campiña alemana.",R.drawable.blancanieves),
+            Element(2,"Capitan America: Un nuevo mundo","Tras reunirse con el recientemente electo presidente de los Estados Unidos Thaddeus Ross, Sam se encuentra en medio de un conflicto internacional. Debe descubrir la razón de un nefasto complot mundial antes de que el verdadero artífice detrás del mismo haga que el mundo entero entre en caos.",R.drawable.capitanamerica)
+        )),
         Category(3,"Series","Obra audiovisual separado en varios capitulos",R.drawable.live_tv_24px),
         Category(4,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px),
         Category(5,"Series","Obra audiovisual separado en varios capitulos",R.drawable.live_tv_24px),
@@ -68,6 +73,10 @@ fun getCategories() : List<Category>{
 
     )
     return categories
+}
+
+fun setCategories() : Unit{
+
 }
 
 class Element(
