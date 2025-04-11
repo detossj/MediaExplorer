@@ -46,6 +46,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import kotlinx.serialization.Serializable
 
 
 fun getCategories() : List<Category>{
@@ -75,6 +76,7 @@ class Element(
     var description: String,
     var Imagen: Int
 )
+
 class Category(
     var id: Int,
     var title: String,
@@ -121,7 +123,7 @@ fun HomeScreen( navController: NavController ){
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = {},
+                onClick = { navController.navigate(NewCategory)},
                 containerColor = Color.LightGray,
                 contentColor = Color.White
 
