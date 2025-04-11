@@ -61,7 +61,7 @@ fun SecondScreen( navController: NavController, category:Int ){
         topBar = { TopAppBar(stringResource(R.string.second_title), stringResource(R.string.second_subtitle))},
         floatingActionButton = {
             FloatingActionButton(
-                onClick = {},
+                onClick = { navController.navigate(NewElement)},
                 containerColor = Color.LightGray,
                 contentColor = Color.White
 

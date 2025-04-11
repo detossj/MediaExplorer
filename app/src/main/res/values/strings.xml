@@ -6,4 +6,6 @@
     <string name="second_subtitle">Please select a element</string>
     <string name="newcategory_title">New Category</string>
     <string name="newcategory_subtitle">Enter the data for the new category</string>
+    <string name="newelement_title">New Element</string>
+    <string name="newelement_subtitle">Enter the data for the new element</string>
 </resources>
