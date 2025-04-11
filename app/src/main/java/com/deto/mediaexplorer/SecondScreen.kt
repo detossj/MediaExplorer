@@ -58,35 +58,7 @@ fun SecondScreen( navController: NavController, category:Int ){
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        topBar = {
-            LargeTopAppBar(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(0.dp),
-                title = {
-                    Column (
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 20.dp)
-                    ) {
-
-                        Text(
-                            text = "Elements",
-                            color = Color.White,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 25.sp
-                        )
-
-                        Text(
-                            text = "Please select a element",
-                            fontSize = 15.sp
-                        )
-
-                    }
-                }
-            )
-
-        },
+        topBar = { TopAppBar(stringResource(R.string.second_title), stringResource(R.string.second_subtitle))},
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {},

@@ -92,35 +92,7 @@ fun HomeScreen( navController: NavController ){
     var selected by remember { mutableIntStateOf(0) }
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        topBar = {
-            LargeTopAppBar(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(0.dp),
-                title = {
-                    Column (
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 20.dp)
-                    ) {
-
-                        Text(
-                            text = stringResource(R.string.title),
-                            color = Color.White,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 25.sp
-                        )
-
-                        Text(
-                            text = stringResource(R.string.subtitle),
-                            fontSize = 15.sp
-                        )
-
-                    }
-                }
-
-            )
-        },
+        topBar = { TopAppBar(stringResource(R.string.home_title),stringResource(R.string.home_subtitle))},
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { navController.navigate(NewCategory)},
@@ -218,3 +190,38 @@ fun HomeScreen( navController: NavController ){
 
     }
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TopAppBar( title: String, subtitle: String){
+
+    LargeTopAppBar(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(0.dp),
+        title = {
+            Column (
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp)
+            ) {
+
+                Text(
+                    text = title,
+                    color = Color.White,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 25.sp
+                )
+
+                Text(
+                    text = subtitle,
+                    fontSize = 15.sp
+                )
+
+            }
+        }
+
+    )
+
+}
+
