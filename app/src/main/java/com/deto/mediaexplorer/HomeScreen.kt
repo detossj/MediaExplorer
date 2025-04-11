@@ -61,9 +61,14 @@ fun getCategories() : List<Category>{
         Category(2,"Peliculas","Obra audiovisual de un tiempo determinado",R.drawable.movie_24px, mutableListOf(
             Element(1,"Minecraft","Una extraña tierra cuadrada que prospera con la imaginación. Para regresar a casa, tendrán que dominar este mundo (y protegerlo de cosas malignas como los Piglins y los Zombis) mientras emprenden una búsqueda mágica con un inesperado experto creador, Steve (Black).",R.drawable.minecraft),
             Element(2,"Blancanieves","Una adaptación en vivo del clásico cuento de hadas sobre una hermosa joven princesa que, mientras es acosada por una reina celosa, busca refugio en la casa de siete enanos en la campiña alemana.",R.drawable.blancanieves),
-            Element(2,"Capitan America: Un nuevo mundo","Tras reunirse con el recientemente electo presidente de los Estados Unidos Thaddeus Ross, Sam se encuentra en medio de un conflicto internacional. Debe descubrir la razón de un nefasto complot mundial antes de que el verdadero artífice detrás del mismo haga que el mundo entero entre en caos.",R.drawable.capitanamerica)
+            Element(3,"Capitan America: Un nuevo mundo","Tras reunirse con el recientemente electo presidente de los Estados Unidos Thaddeus Ross, Sam se encuentra en medio de un conflicto internacional. Debe descubrir la razón de un nefasto complot mundial antes de que el verdadero artífice detrás del mismo haga que el mundo entero entre en caos.",R.drawable.capitanamerica)
         )),
-        Category(3,"Series","Obra audiovisual separado en varios capitulos",R.drawable.live_tv_24px),
+        Category(3,"Series","Obra audiovisual separado en varios capitulos",R.drawable.live_tv_24px, mutableListOf(
+            Element(1,"Daredevil","Daredevil es una serie de Marvel que trata de Matt Murdock, un abogado ciego que lucha contra el crimen como el justiciero enmascarado Daredevil.",R.drawable.daredevil),
+            Element(2,"The Punisher","The Punisher es una serie de televisión estadounidense de Marvel que narra la historia de Frank Castle, un ex soldado que se convierte en un justiciero enmascarado. Su objetivo es vengar el asesinato de su familia.",R.drawable.thepunisher),
+            Element(3,"Iron Fist","Iron Fist es una serie de televisión de Marvel que narra la historia de Danny Rand, un joven que regresa a Nueva York tras años de desaparición. Danny posee un dominio del kung-fu y la habilidad de invocar el Puño de Hierro",R.drawable.ironfist)
+
+        )),
         Category(4,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px),
         Category(5,"Series","Obra audiovisual separado en varios capitulos",R.drawable.live_tv_24px),
         Category(6,"Novela","Obra audiovisual separado en varios capitulos",R.drawable.menu_book_24px),
