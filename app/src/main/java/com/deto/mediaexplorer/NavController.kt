@@ -3,6 +3,7 @@ package com.deto.mediaexplorer
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.toMutableStateList
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -27,7 +28,8 @@ object NewElement
 fun Navigation(){
 
 
-    var list = remember { mutableStateListOf<Category>().apply { addAll(getCategories()) } }
+    var list = remember { getCategories().toMutableStateList() }
+
 
     val navController = rememberNavController()
 
