@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">MediaExplorer</string>
-    <string name="title">MediaExplorer</string>
-    <string name="subtitle">Please select a category</string>
+    <string name="home_title">MediaExplorer</string>
+    <string name="home_subtitle">Please select a category</string>
+    <string name="second_title">Elements</string>
+    <string name="second_subtitle">Please select a element</string>
+    <string name="newcategory_title">New Category</string>
+    <string name="newcategory_subtitle">Enter the data for the new category</string>
 </resources>
