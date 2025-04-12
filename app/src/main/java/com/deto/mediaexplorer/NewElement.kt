@@ -39,7 +39,7 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NewElement(navController: NavController){
+fun NewElement(navController: NavController,category: Int, addElement: (Element,Int) -> Unit){
 
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
@@ -71,7 +71,13 @@ fun NewElement(navController: NavController){
                             error = title.isEmpty()
                             error2 = description.isEmpty()
 
-                            // if a la otra screen
+                            if( !error && !error2){
+                                val selectedCategory = getCategories().find { it.id == category }
+
+                                val newElement = Element((selectedCategory?.elements?.size?:0) + 1 ,title,description,selectedClassification,null)
+                                addElement(newElement,category)
+                                navController.navigate(SecondScreen(category))
+                            }
 
                         },
                         shape = CircleShape,

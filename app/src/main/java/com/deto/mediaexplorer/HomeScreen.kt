@@ -99,7 +99,7 @@ class Category(
     var id: Int,
     var title: String,
     var icon: Int?,
-    var elements: List<Element> = emptyList()
+    var elements: MutableList<Element> = mutableListOf()
 )
 
 @OptIn(ExperimentalMaterial3Api::class)

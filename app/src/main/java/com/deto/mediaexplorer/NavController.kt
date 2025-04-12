@@ -20,7 +20,7 @@ data class SecondScreen( val category: Int)
 object NewCategory
 
 @Serializable
-object NewElement
+data class NewElement( val categoryId: Int)
 
 
 
@@ -41,7 +41,7 @@ fun Navigation(){
 
         composable<SecondScreen> { backStackEntry ->
             val args = backStackEntry.toRoute<SecondScreen>()
-            SecondScreen(navController = navController, category = args.category)
+            SecondScreen(navController = navController, category = args.category,list = list)
         }
 
         composable<NewCategory> {
@@ -50,7 +50,7 @@ fun Navigation(){
 
         composable<NewElement> { backStackEntry ->
             val args = backStackEntry.toRoute<NewElement>()
-            NewElement(navController = navController)
+            NewElement(navController = navController, category = args.categoryId, addElement = { newElement,categoryId -> list.find { it.id == categoryId }?.elements?.add(newElement) })
         }
 
 

@@ -38,7 +38,7 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NewCategory( navController: NavController,add: (Category)-> Unit){
+fun NewCategory( navController: NavController, add: (Category)-> Unit){
 
     var title by remember { mutableStateOf("") }
     var error by remember { mutableStateOf(false) }
@@ -66,7 +66,7 @@ fun NewCategory( navController: NavController,add: (Category)-> Unit){
 
                             error = title.isEmpty()
                             if( !error ){
-                                val newCategory = Category(getCategories().size+1,title,null, emptyList())
+                                val newCategory = Category(getCategories().size+1,title,null, mutableListOf())
 
                                 add(newCategory)
 

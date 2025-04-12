@@ -35,6 +35,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -49,9 +50,9 @@ val categories = getCategories()
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SecondScreen( navController: NavController, category:Int ){
+fun SecondScreen( navController: NavController, category:Int ,list: List<Category>){
 
-    val SelectedCategory = categories.find { it.id == category }
+    val SelectedCategory = list.find { it.id == category }
 
 
     var selected by remember { mutableIntStateOf(0) }
@@ -61,7 +62,7 @@ fun SecondScreen( navController: NavController, category:Int ){
         topBar = { TopAppBar(stringResource(R.string.second_title), stringResource(R.string.second_subtitle))},
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { navController.navigate(NewElement)},
+                onClick = { navController.navigate(NewElement(category))},
                 containerColor = Color.LightGray,
                 contentColor = Color.White
 
