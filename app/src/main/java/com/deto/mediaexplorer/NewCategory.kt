@@ -63,9 +63,9 @@ fun NewCategory( navController: NavController,add: (Category)-> Unit){
 
                     Button(
                         onClick = {
-                            if( title.isEmpty() ){
-                                error = true
-                            } else{
+
+                            error = title.isEmpty()
+                            if( !error ){
                                 val newCategory = Category(getCategories().size+1,title,null, emptyList())
 
                                 add(newCategory)
