@@ -29,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -62,11 +63,15 @@ fun NewCategory( navController: NavController,add: (Category)-> Unit){
 
                     Button(
                         onClick = {
-                            val newCategory = Category(getCategories().size+1,title,null, emptyList())
+                            if( title.isEmpty() ){
+                                error = true
+                            } else{
+                                val newCategory = Category(getCategories().size+1,title,null, emptyList())
 
-                            add(newCategory)
+                                add(newCategory)
 
-                            navController.navigate(Home)
+                                navController.navigate(Home)
+                            }
                         },
                         shape = CircleShape,
                         contentPadding = PaddingValues(0.dp)
@@ -99,6 +104,14 @@ fun NewCategory( navController: NavController,add: (Category)-> Unit){
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
                     value = title,
+                    leadingIcon = {
+                        Icon(
+                            painterResource(R.drawable.title_24px),
+                            contentDescription = "title",
+                            tint = Color.White
+                        )
+                    },
+                    supportingText = { if(error) Text("Enter the title") else {} },
                     isError = error,
                     onValueChange = { title = it },
                     label = { Text("Title") },

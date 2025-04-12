@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">MediaExplorer</string>
-    <string name="home_title">MediaExplorer</string>
+    <string name="app_name">Media Explorer</string>
+    <string name="home_title">Media Explorer</string>
     <string name="home_subtitle">Please select a category</string>
     <string name="second_title">Elements</string>
     <string name="second_subtitle">Please select a element</string>
