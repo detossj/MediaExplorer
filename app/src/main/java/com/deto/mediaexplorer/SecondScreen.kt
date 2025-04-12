@@ -42,6 +42,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -167,15 +168,37 @@ fun SecondScreen( navController: NavController, category:Int ,list: List<Categor
                                 verticalArrangement = Arrangement.Center,
                                 horizontalAlignment = Alignment.Start
                             ) {
+
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.End,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                ) {
+                                    Text(
+                                        text = it.classification.toString(),
+                                        fontSize = 18.sp
+                                    )
+                                    Icon(
+                                        painter = painterResource(R.drawable.star_24px),
+                                        contentDescription = "classification",
+                                        modifier = Modifier
+                                            .padding(start = 4.dp)
+                                            .size(18.dp)
+                                    )
+                                }
                                 Text(
                                     text = it.title,
                                     fontSize = 18.sp,
                                     fontWeight = FontWeight.Bold
                                 )
+
                                 Text(
-                                    text = it.description,
+                                    text = if( it.description.length > 100) it.description.take(100) + "..." else it.description,
                                     fontSize = 14.sp
                                 )
+
+
                             }
                         }
 
