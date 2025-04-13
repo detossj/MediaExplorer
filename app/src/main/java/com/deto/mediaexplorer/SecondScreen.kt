@@ -21,6 +21,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -46,6 +47,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.compose.onPrimaryContainerLight
+import com.example.compose.onTertiaryDark
+import com.example.compose.onTertiaryLight
+import com.example.compose.primaryContainerDark
+import com.example.compose.primaryContainerLight
+import com.example.compose.secondaryContainerDark
+import com.example.compose.secondaryContainerLight
+import com.example.compose.surfaceContainerDark
+import com.example.compose.surfaceDark
+import com.example.compose.tertiaryContainerLight
 
 val categories = getCategories()
 
@@ -61,11 +72,13 @@ fun SecondScreen( navController: NavController, category:Int ,list: List<Categor
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = { TopAppBar(stringResource(R.string.second_title), stringResource(R.string.second_subtitle))},
+        containerColor = secondaryContainerDark,
+        contentColor = onPrimaryContainerLight,
         floatingActionButton = {
             FloatingActionButton(
                 onClick = { navController.navigate(NewElement(category))},
-                containerColor = Color.LightGray,
-                contentColor = Color.White
+                containerColor = surfaceContainerDark,
+                contentColor = onTertiaryLight
 
             ) {
                 Icon(Icons.Default.Add, contentDescription = "Add")
@@ -87,7 +100,13 @@ fun SecondScreen( navController: NavController, category:Int ,list: List<Categor
                     Button(
                         onClick = {  },
                         shape = CircleShape,
-                        contentPadding = PaddingValues(0.dp)
+                        contentPadding = PaddingValues(0.dp),
+                        colors = ButtonColors(
+                            containerColor = primaryContainerDark,
+                            contentColor = Color.White,
+                            disabledContentColor = Color.White,
+                            disabledContainerColor = Color.Transparent
+                        )
                     ) {
                         Icon(
                             imageVector = Icons.Default.KeyboardArrowRight,
@@ -124,7 +143,7 @@ fun SecondScreen( navController: NavController, category:Int ,list: List<Categor
                             .clickable { selected = it.id },
                         colors = CardColors(
                             contentColor = Color.White,
-                            containerColor =  if (selected == it.id ) Color.Red else Color.Gray ,
+                            containerColor =  if (selected == it.id ) onTertiaryDark else primaryContainerDark,
                             disabledContentColor = Color.White,
                             disabledContainerColor = Color.Transparent
                         )

@@ -64,5 +64,7 @@ dependencies {
 
     // JSON serialization library, works with the kotlin serialization plugin
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    implementation ("androidx.compose.ui:ui-text-google-fonts:1.6.0")
+    implementation ("androidx.compose.material3:material3:1.0.0") // Para Material3
 
 }

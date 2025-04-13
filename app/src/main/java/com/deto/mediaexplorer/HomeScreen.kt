@@ -22,6 +22,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -32,6 +33,7 @@ import androidx.compose.material3.LargeTopAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -48,6 +50,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.compose.onPrimaryContainerLight
+import com.example.compose.onSecondaryLight
+import com.example.compose.onTertiaryDark
+import com.example.compose.onTertiaryLight
+import com.example.compose.primaryContainerDark
+import com.example.compose.primaryContainerLight
+import com.example.compose.primaryLight
+import com.example.compose.secondaryContainerDark
+import com.example.compose.secondaryContainerLight
+import com.example.compose.surfaceContainerDark
+import com.example.compose.tertiaryContainerLight
 import kotlinx.serialization.Serializable
 
 
@@ -110,12 +123,14 @@ fun HomeScreen( navController: NavController, listCategory: List<Category> ){
     var selected by remember { mutableIntStateOf(0) }
     Scaffold(
         modifier = Modifier.fillMaxSize(),
+        containerColor = secondaryContainerDark,
+        contentColor = onPrimaryContainerLight,
         topBar = { TopAppBar(stringResource(R.string.home_title),stringResource(R.string.home_subtitle))},
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {  navController.navigate(NewCategory)},
-                containerColor = Color.LightGray,
-                contentColor = Color.White
+                containerColor = surfaceContainerDark,
+                contentColor = onTertiaryLight
 
             ) {
                 Icon(Icons.Default.Add, contentDescription = "Add")
@@ -137,7 +152,13 @@ fun HomeScreen( navController: NavController, listCategory: List<Category> ){
                     Button(
                         onClick = { if( selected == 0 ) {} else   navController.navigate(SecondScreen(selected)) },
                         shape = CircleShape,
-                        contentPadding = PaddingValues(0.dp)
+                        contentPadding = PaddingValues(0.dp),
+                        colors = ButtonColors(
+                            containerColor = primaryContainerDark,
+                            contentColor = Color.White,
+                            disabledContentColor = Color.White,
+                            disabledContainerColor = Color.Transparent
+                        )
                     ) {
                         Icon(
                             imageVector = Icons.Default.KeyboardArrowRight,
@@ -173,7 +194,7 @@ fun HomeScreen( navController: NavController, listCategory: List<Category> ){
                             .clickable { selected = it.id },
                         colors = CardColors(
                             contentColor = Color.White,
-                            containerColor =  if (selected == it.id ) Color.Red else Color.Gray ,
+                            containerColor =  if (selected == it.id ) onTertiaryDark else primaryContainerDark,
                             disabledContentColor = Color.White,
                             disabledContainerColor = Color.Transparent
                         )
@@ -231,6 +252,13 @@ fun TopAppBar( title: String, subtitle: String){
         modifier = Modifier
             .fillMaxWidth()
             .padding(0.dp),
+        colors = TopAppBarColors(
+            containerColor = secondaryContainerDark,
+            titleContentColor = onSecondaryLight,
+            actionIconContentColor = secondaryContainerDark,
+            scrolledContainerColor = secondaryContainerLight,
+            navigationIconContentColor = secondaryContainerLight
+        ),
         title = {
             Column (
                 modifier = Modifier

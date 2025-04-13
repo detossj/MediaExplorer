@@ -35,6 +35,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.compose.onPrimaryContainerLight
+import com.example.compose.secondaryContainerDark
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -46,6 +48,8 @@ fun NewCategory( navController: NavController, add: (Category)-> Unit){
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
+        containerColor = secondaryContainerDark,
+        contentColor = onPrimaryContainerLight,
         topBar = { TopAppBar(stringResource(R.string.newcategory_title),stringResource(R.string.newcategory_subtitle))},
         bottomBar = {
             BottomAppBar() {

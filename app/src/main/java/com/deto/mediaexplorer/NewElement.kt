@@ -36,6 +36,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.compose.onPrimaryContainerLight
+import com.example.compose.secondaryContainerDark
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,6 +54,8 @@ fun NewElement(navController: NavController,category: Int, addElement: (Element,
     Scaffold(
 
         modifier = Modifier.fillMaxSize(),
+        containerColor = secondaryContainerDark,
+        contentColor = onPrimaryContainerLight,
         topBar = { TopAppBar(stringResource(R.string.newelement_title), stringResource(R.string.newelement_subtitle))},
         bottomBar = {
             BottomAppBar() {
