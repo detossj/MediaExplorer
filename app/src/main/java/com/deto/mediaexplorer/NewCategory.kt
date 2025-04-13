@@ -119,7 +119,9 @@ fun NewCategory( navController: NavController, add: (Category)-> Unit){
                     isError = error,
                     onValueChange = { title = it },
                     label = { Text("Title") },
-                    placeholder = { Text("Title")}
+                    placeholder = { Text("Title")},
+                    minLines = 1,
+                    maxLines = 1
 
                 )
 

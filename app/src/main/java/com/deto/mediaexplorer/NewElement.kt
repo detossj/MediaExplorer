@@ -125,7 +125,9 @@ fun NewElement(navController: NavController,category: Int, addElement: (Element,
                     isError = error,
                     onValueChange = { title = it },
                     label = { Text("Title") },
-                    placeholder = { Text("Title") }
+                    placeholder = { Text("Title") },
+                    minLines = 1,
+                    maxLines = 1
 
                 )
 
@@ -143,7 +145,8 @@ fun NewElement(navController: NavController,category: Int, addElement: (Element,
                     isError = error2,
                     onValueChange = { description = it },
                     label = { Text("Description") },
-                    placeholder = { Text("Description") }
+                    placeholder = { Text("Description") },
+                    minLines = 1,
 
                 )
 
