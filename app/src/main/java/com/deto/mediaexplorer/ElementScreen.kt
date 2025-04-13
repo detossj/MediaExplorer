@@ -9,7 +9,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.BottomAppBar
@@ -46,6 +48,7 @@ fun ElementScreen( navController: NavController, idCategory: Int, idElement: Int
 
     val SelectedElement = list.find { it.id == idCategory }?.elements?.find { it.id == idElement  }
 
+    val scrollState = rememberScrollState()
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = secondaryContainerDark,
@@ -146,7 +149,7 @@ fun ElementScreen( navController: NavController, idCategory: Int, idElement: Int
         ){
 
             Column(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 20.dp)
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 20.dp).verticalScroll(scrollState)
             ) {
 
                 Column(
