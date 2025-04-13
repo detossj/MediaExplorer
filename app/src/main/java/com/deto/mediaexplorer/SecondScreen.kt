@@ -92,13 +92,15 @@ fun SecondScreen( navController: NavController, category:Int ,list: List<Categor
                 ) {
                     TextButton(
                         modifier = Modifier.fillMaxWidth(.7f),
-                        onClick = {}
+                        onClick = {
+
+                        }
                     ) {
                         Text("View element")
                     }
 
                     Button(
-                        onClick = {  },
+                        onClick = { navController.navigate(ElementScreen(category,selected)) },
                         shape = CircleShape,
                         contentPadding = PaddingValues(0.dp),
                         colors = ButtonColors(

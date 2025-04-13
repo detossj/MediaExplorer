@@ -22,6 +22,8 @@ object NewCategory
 @Serializable
 data class NewElement( val categoryId: Int)
 
+@Serializable
+data class ElementScreen(val idCategory: Int, val idElement: Int)
 
 
 @Composable
@@ -52,6 +54,12 @@ fun Navigation(){
             val args = backStackEntry.toRoute<NewElement>()
             NewElement(navController = navController, category = args.categoryId, addElement = { newElement,categoryId -> list.find { it.id == categoryId }?.elements?.add(newElement) })
         }
+
+        composable<ElementScreen> { backStackEntry ->
+            val args = backStackEntry.toRoute<ElementScreen>()
+            ElementScreen(navController = navController, idCategory = args.idCategory, idElement = args.idElement,list = list )
+        }
+
 
 
     }
