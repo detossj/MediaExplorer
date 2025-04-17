@@ -146,7 +146,7 @@ fun HomeScreen( navController: NavController, listCategory: List<Category> ){
                         modifier = Modifier.fillMaxWidth(.7f),
                         onClick = {}
                     ) {
-                        Text("View elements of the category")
+                        Text(stringResource(R.string.home_bottom))
                     }
 
                     Button(

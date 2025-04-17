@@ -62,7 +62,7 @@ fun NewCategory( navController: NavController, add: (Category)-> Unit){
                         onClick = {
                         }
                     ) {
-                        Text("Add category")
+                        Text(stringResource(R.string.newcategory_bottom))
                     }
 
                     Button(
@@ -115,11 +115,11 @@ fun NewCategory( navController: NavController, add: (Category)-> Unit){
                             tint = Color.White
                         )
                     },
-                    supportingText = { if(error) Text("Enter the title") else {} },
+                    supportingText = { if(error) Text(stringResource(R.string.supportingText_title)) else {} },
                     isError = error,
                     onValueChange = { title = it },
-                    label = { Text("Title") },
-                    placeholder = { Text("Title")},
+                    label = { Text(stringResource(R.string.form_title)) },
+                    placeholder = { stringResource(R.string.form_title) },
                     minLines = 1,
                     maxLines = 1
 

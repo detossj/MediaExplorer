@@ -2,10 +2,21 @@
     <string name="app_name">Media Explorer</string>
     <string name="home_title">Media Explorer</string>
     <string name="home_subtitle">Please select a category</string>
+    <string name="home_bottom">View elements of the category</string>
     <string name="second_title">Elements</string>
     <string name="second_subtitle">Please select a element</string>
+    <string name="second_bottom">View element</string>
     <string name="newcategory_title">New Category</string>
     <string name="newcategory_subtitle">Enter the data for the new category</string>
+    <string name="newcategory_bottom">Add category</string>
     <string name="newelement_title">New Element</string>
     <string name="newelement_subtitle">Enter the data for the new element</string>
+    <string name="newelement_bottom">Add element</string>
+    <string name="element_bottom">Go to Home</string>
+    <string name="form_title">Title</string>
+    <string name="form_description">Description</string>
+    <string name="form_classification">Classification</string>
+    <string name="supportingText_title">Enter the title</string>
+    <string name="supportingText_description">Enter the description</string>
+
 </resources>

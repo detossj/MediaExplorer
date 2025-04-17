@@ -67,7 +67,7 @@ fun NewElement(navController: NavController,category: Int, addElement: (Element,
                         modifier = Modifier.fillMaxWidth(.7f),
                         onClick = {}
                     ) {
-                        Text("Add element")
+                        Text(stringResource(R.string.newelement_bottom))
                     }
 
                     Button(
@@ -121,11 +121,11 @@ fun NewElement(navController: NavController,category: Int, addElement: (Element,
                             tint = Color.White
                         )
                     },
-                    supportingText = { if(error) Text("Enter the title") else {} },
+                    supportingText = { if(error) Text(stringResource(R.string.supportingText_title)) else {} },
                     isError = error,
                     onValueChange = { title = it },
-                    label = { Text("Title") },
-                    placeholder = { Text("Title") },
+                    label = { Text(stringResource(R.string.form_title)) },
+                    placeholder = { Text(stringResource(R.string.form_title)) },
                     minLines = 1,
                     maxLines = 1
 
@@ -141,11 +141,11 @@ fun NewElement(navController: NavController,category: Int, addElement: (Element,
                             tint = Color.White
                         )
                     },
-                    supportingText = { if(error2) Text("Enter the description") else {} },
+                    supportingText = { if(error2) Text(stringResource(R.string.supportingText_description)) else {} },
                     isError = error2,
                     onValueChange = { description = it },
-                    label = { Text("Description") },
-                    placeholder = { Text("Description") },
+                    label = { Text(stringResource(R.string.form_description)) },
+                    placeholder = { Text(stringResource(R.string.form_description)) },
                     minLines = 1,
 
                 )
@@ -165,7 +165,7 @@ fun NewElement(navController: NavController,category: Int, addElement: (Element,
                         },
                         onValueChange = {},
                         readOnly = true,
-                        label = { Text("Classification") },
+                        label = { Text(stringResource(R.string.form_classification)) },
                         trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded)},
                         modifier = Modifier
                             .menuAnchor(type = MenuAnchorType.PrimaryEditable, enabled = true)

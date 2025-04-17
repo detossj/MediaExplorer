@@ -96,7 +96,7 @@ fun SecondScreen( navController: NavController, category:Int ,list: List<Categor
 
                         }
                     ) {
-                        Text("View element")
+                        Text(stringResource(R.string.second_bottom))
                     }
 
                     Button(
