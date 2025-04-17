@@ -150,7 +150,7 @@ fun HomeScreen( navController: NavController, listCategory: List<Category> ){
                     }
 
                     Button(
-                        onClick = { if( selected == 0 ) {} else   navController.navigate(SecondScreen(selected)) },
+                        onClick = { if( selected == 0 ) {} else navController.navigate(SecondScreen(selected)) },
                         shape = CircleShape,
                         contentPadding = PaddingValues(0.dp),
                         colors = ButtonColors(

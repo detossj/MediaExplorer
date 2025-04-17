@@ -100,7 +100,7 @@ fun SecondScreen( navController: NavController, category:Int ,list: List<Categor
                     }
 
                     Button(
-                        onClick = { navController.navigate(ElementScreen(category,selected)) },
+                        onClick = { if( selected == 0 ) {} else navController.navigate(ElementScreen(category,selected)) },
                         shape = CircleShape,
                         contentPadding = PaddingValues(0.dp),
                         colors = ButtonColors(
